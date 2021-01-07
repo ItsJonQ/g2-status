@@ -153,7 +153,7 @@ const packagesProps = {
 function PackageHeader(props) {
 	const { backgroundColor, icon, color, title, status, ...otherProps } = props;
 	return (
-		<CardBody scrollable={false} {...otherProps}>
+		<CardBody scrollable={false} {...otherProps} css={{ cursor: "pointer" }}>
 			<HStack spacing={3}>
 				<View
 					css={{
