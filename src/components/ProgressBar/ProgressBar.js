@@ -16,19 +16,27 @@ function ProgressBar(props) {
 	return (
 		<HStack>
 			<View
+				role="progressbar"
+				aria-valuenow={value}
+				aria-valuemin={0}
+				aria-valuemax={100}
 				css={{
 					backgroundColor: "rgba(0, 0, 0, 0.04)",
 					borderRadius: 8,
 					height,
 					width,
+					overflow: "hidden",
 				}}
 			>
 				<View
-					style={{
-						backgroundColor: color,
-						width: barWidth,
+					css={{
 						borderRadius: 8,
+						backgroundColor: color,
 						transition: "width 0.2s ease",
+						height: "100%",
+					}}
+					style={{
+						width: barWidth,
 					}}
 				/>
 			</View>

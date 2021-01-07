@@ -38,7 +38,7 @@ export function getItems(initialData = []) {
 		}
 
 		score = Number(score);
-		const progressValue = score / 2;
+		const progressValue = (score / 2) * 100;
 		const progressPct = percentage(progressValue);
 
 		return {

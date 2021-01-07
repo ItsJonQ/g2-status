@@ -35,7 +35,7 @@ function getPackageSections(data) {
 		const extraProps = packagesProps[slug] || {};
 		const totalScore = items.length * 2;
 		const currentScore = items.reduce((sum, i) => sum + i.score, 0);
-		const status = currentScore / totalScore;
+		const status = (currentScore / totalScore) * 100;
 
 		return {
 			...extraProps,
@@ -64,19 +64,19 @@ function getProgressMessage(statusRaw) {
 	let message = progressMessages[0];
 
 	switch (true) {
-		case statusRaw > 0.11:
+		case statusRaw > 11:
 			message = progressMessages[1];
 			break;
-		case statusRaw > 0.26:
+		case statusRaw > 26:
 			message = progressMessages[2];
 			break;
-		case statusRaw > 0.65:
+		case statusRaw > 65:
 			message = progressMessages[3];
 			break;
-		case statusRaw > 0.76:
+		case statusRaw > 76:
 			message = progressMessages[4];
 			break;
-		case statusRaw > 0.9:
+		case statusRaw > 9:
 			message = progressMessages[5];
 			break;
 		case statusRaw >= 1:
@@ -88,8 +88,9 @@ function getProgressMessage(statusRaw) {
 }
 
 function StatusHeader({ statusRaw }) {
-	const isReady = statusRaw >= 1;
-	const message = getProgressMessage(statusRaw);
+	const status = statusRaw * 100;
+	const isReady = status >= 100;
+	const message = getProgressMessage(status);
 
 	return (
 		<VStack spacing={4}>
@@ -107,7 +108,7 @@ function StatusHeader({ statusRaw }) {
 				</Text>
 			</VStack>
 			<VStack>
-				<ProgressBar progress={statusRaw} height={12} />
+				<ProgressBar progress={status} height={12} />
 				<Text lineHeight={1} variant="muted" weight={600}>
 					{message}
 				</Text>
@@ -186,6 +187,7 @@ function PackageItem(props) {
 		backgroundColor,
 		color,
 	} = props;
+
 	return (
 		<Grid
 			templateColumns={[
