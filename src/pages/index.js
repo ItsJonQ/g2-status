@@ -152,8 +152,8 @@ const packagesProps = {
 function PackageHeader(props) {
 	const { backgroundColor, icon, color, title, status, ...otherProps } = props;
 	return (
-		<CardBody {...otherProps}>
-			<HStack spacing={3} css={{ cursor: "pointer" }}>
+		<CardBody scrollable={false} {...otherProps}>
+			<HStack spacing={3}>
 				<View
 					css={{
 						backgroundColor,
@@ -242,7 +242,7 @@ function CardLink({
 			isBorderless
 			elevation={5}
 		>
-			<CardBody css={{ height: 120, padding: 20 }}>
+			<CardBody css={{ height: 120, padding: 20 }} scrollable={false}>
 				<VStack alignment="center" expanded>
 					<VStack spacing={1}>
 						<Text css={{ opacity: 0.6 }} upperCase size={10} weight={600}>
