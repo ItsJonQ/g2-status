@@ -1,0 +1,21 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	margin: 0;
+}
+
+@media (max-width: 39.999em) {
+	:root {
+		--wp-g2-font-size: 16px !important;
+	}
+}
+
+* {
+	-webkit-overflow-scrolling: touch;
+}

@@ -3,20 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "USE_INITIAL_DATA_ONLY=true next dev -p 8400",
     "build": "next build",
-    "start": "next start"
+    "prestart": "yarn",
+    "start": "next dev -p 8400",
+    "serve": "next start"
   },
   "dependencies": {
-    "@wp-g2/components": "latest",
-    "@wp-g2/context": "latest",
-    "@wp-g2/hint": "latest",
-    "@wp-g2/protokit": "latest",
-    "@wp-g2/styles": "latest",
-    "@wp-g2/utils": "latest",
+    "@wp-g2/components": "0.0.127",
+    "@wp-g2/context": "0.0.127",
+    "@wp-g2/styles": "0.0.127",
+    "@wp-g2/utils": "0.0.127",
+    "axios": "0.21.0",
     "create-emotion-server": "10.0.27",
+    "dayjs": "1.9.7",
+    "googleapis": "66.0.0",
+    "lodash": "4.17.20",
     "next": "^10.0.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-countup": "^4.3.3",
+    "react-icons": "4.1.0"
+  },
+  "devDependencies": {
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
