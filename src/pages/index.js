@@ -350,19 +350,27 @@ export default function Home() {
 							/>
 						</Grid>
 					</ThemeProvider>
-					<HStack alignment="center">
+					<HStack alignment="center" spacing={2}>
 						<Text size="caption">
 							Built with{" "}
 							<Link
-								size="caption"
 								href="https://github.com/itsjonq/g2"
+								size="caption"
 								target="_blank"
 								rel="noreferrer noopener"
 							>
 								G2 Components
 							</Link>
-							.
 						</Text>
+						<Text size="caption">.</Text>
+						<Link
+							href="https://github.com/ItsJonQ/g2-status"
+							size="caption"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							View Source
+						</Link>
 					</HStack>
 				</VStack>
 			</Container>
