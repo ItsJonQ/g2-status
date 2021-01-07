@@ -4,14 +4,14 @@ import { percentage } from "@lib/utils";
 
 function ProgressBar(props) {
 	const {
-		backgroundColor = ui.get("colorGreen50"),
 		color = ui.get("colorGreen500"),
 		progress,
 		width = "100%",
 		height = 8,
 	} = props;
 
-	const barWidth = percentage(progress);
+	const value = isNaN(progress) ? 0 : progress;
+	const barWidth = percentage(value);
 
 	return (
 		<HStack>
@@ -24,7 +24,12 @@ function ProgressBar(props) {
 				}}
 			>
 				<View
-					style={{ backgroundColor: color, width: barWidth, borderRadius: 8 }}
+					style={{
+						backgroundColor: color,
+						width: barWidth,
+						borderRadius: 8,
+						transition: "width 0.2s ease",
+					}}
 				/>
 			</View>
 			<Text variant="muted" size={10}>

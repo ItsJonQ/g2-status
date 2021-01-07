@@ -6,8 +6,17 @@ const API_URL = "/api/data/";
 
 const initialState = Object.freeze({
 	items: [],
-	overview: {},
-	groupedItems: {},
+	overview: {
+		statusRaw: 0,
+	},
+	groupedItems: {
+		substate: [],
+		utils: [],
+		"create-styles": [],
+		styles: [],
+		context: [],
+		components: [],
+	},
 });
 
 export const dataStore = createStore((set, get) => ({

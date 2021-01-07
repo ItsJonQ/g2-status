@@ -11,10 +11,7 @@ export async function getData() {
 		};
 	}
 
-	let fetchedData = {
-		overview: [],
-		data: [],
-	};
+	let fetchedData = initialData;
 
 	try {
 		const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
@@ -39,7 +36,7 @@ export async function getData() {
 			range: "Component Integration Progress Overview",
 		});
 
-		const overview = getOverview(overviewData?.data?.values || []);
+		const overview = overviewData?.data?.values || [];
 		const data = progressData?.data?.values || [];
 
 		fetchedData = { overview, data };
