@@ -152,8 +152,8 @@ const packagesProps = {
 function PackageHeader(props) {
 	const { backgroundColor, icon, color, title, status, ...otherProps } = props;
 	return (
-		<CardBody {...otherProps} css={{ cursor: "pointer" }}>
-			<HStack spacing={3}>
+		<CardBody {...otherProps}>
+			<HStack spacing={3} css={{ cursor: "pointer" }}>
 				<View
 					css={{
 						backgroundColor,
