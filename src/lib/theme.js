@@ -3,7 +3,7 @@ import { createTheme } from "@wp-g2/styles";
 const theme = createTheme(({ get, space, theme }) => {
 	const COLOR_PROPS = {
 		colorAdmin: "#3858E9",
-		colorText: "#3a3b3c",
+		colorText: "#2a2b2c",
 		colorRed50: "#FEF2F2",
 		colorRed500: "#EF4444",
 		colorYellow50: "#FFFBEB",

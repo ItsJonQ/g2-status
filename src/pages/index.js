@@ -178,19 +178,6 @@ function PackageHeader(props) {
 	);
 }
 
-const collectionItemHoverStyles = css`
-	> * {
-		transition: opacity 0.16s linear;
-	}
-	&:hover > * {
-		opacity: 0.5;
-
-		&:hover {
-			opacity: 1;
-		}
-	}
-`;
-
 function PackageItem(props) {
 	const {
 		description,
@@ -281,12 +268,7 @@ function PackageSection(props) {
 					title={title}
 				/>
 				<CollapsibleContent>
-					<View
-						css={[
-							{ paddingRight: 12, paddingBottom: 8 },
-							collectionItemHoverStyles,
-						]}
-					>
+					<View css={[{ paddingRight: 12, paddingBottom: 8 }]}>
 						{items.map((item) => (
 							<PackageItem key={item.moduleName} {...item} color={color} />
 						))}
@@ -323,34 +305,36 @@ export default function Home() {
 				css={{ padding: ["40px 20px 10vh", "8vh 20px 10vh"] }}
 			>
 				<VStack spacing={12}>
-					<View>
+					<View as="header">
 						<Text weight={800} as="h1">
 							G2 Components
 						</Text>
 					</View>
-					<StatusHeader statusRaw={statusRaw} />
-					<VStack spacing={2}>
-						{packageSections.map((packageSection) => (
-							<PackageSection {...packageSection} />
-						))}
+					<VStack spacing={12} as="main">
+						<StatusHeader statusRaw={statusRaw} />
+						<VStack spacing={2}>
+							{packageSections.map((packageSection) => (
+								<PackageSection {...packageSection} />
+							))}
+						</VStack>
+						<ThemeProvider isDark>
+							<Grid columns={[1, 2]} gap={[4, 8]}>
+								<CardLink
+									title="Gutenberg Proposal"
+									caption="The Next Component System"
+									href="https://github.com/WordPress/gutenberg/issues/27331"
+									backgroundColor={ui.get("colorBlue500")}
+								/>
+								<CardLink
+									title="Project Blog"
+									caption="Get The Latest"
+									href="https://g2components.wordpress.com/"
+									backgroundColor={ui.get("colorGreen500")}
+								/>
+							</Grid>
+						</ThemeProvider>
 					</VStack>
-					<ThemeProvider isDark>
-						<Grid columns={[1, 2]} gap={[4, 8]}>
-							<CardLink
-								title="Gutenberg Proposal"
-								caption="The Next Component System"
-								href="https://github.com/WordPress/gutenberg/issues/27331"
-								backgroundColor={ui.get("colorBlue500")}
-							/>
-							<CardLink
-								title="Project Blog"
-								caption="Get The Latest"
-								href="https://g2components.wordpress.com/"
-								backgroundColor={ui.get("colorGreen500")}
-							/>
-						</Grid>
-					</ThemeProvider>
-					<HStack alignment="center" spacing={2}>
+					<HStack alignment="center" spacing={2} as="footer">
 						<Text size="caption">
 							Built with{" "}
 							<Link
