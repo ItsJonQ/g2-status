@@ -171,7 +171,7 @@ function PackageHeader(props) {
 				</View>
 				<FlexBlock />
 				<View css={{ paddingRight: 8 }}>
-					<ProgressBar width={120} progress={status} color={color} />
+					<ProgressBar width={[80, 100]} progress={status} color={color} />
 				</View>
 			</HStack>
 		</CardBody>
@@ -188,7 +188,10 @@ function PackageItem(props) {
 	} = props;
 	return (
 		<Grid
-			templateColumns="180px minmax(0,1fr) 100px"
+			templateColumns={[
+				"180px minmax(0,1fr) 80px",
+				"180px minmax(0,1fr) 100px",
+			]}
 			css={[
 				{ borderRadius: 8, padding: 8, marginLeft: 12 },
 				ui.hover({
@@ -210,7 +213,7 @@ function PackageItem(props) {
 			</View>
 			<HStack alignment="right">
 				<ProgressBar
-					width={60}
+					width={[40, 60]}
 					progress={progressValue}
 					backgroundColor={backgroundColor}
 					color={color}
