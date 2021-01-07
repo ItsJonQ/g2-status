@@ -313,7 +313,7 @@ export default function Home() {
 				<title>G2 Components: Integration Status</title>
 				<meta
 					name="viewport"
-					content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+					content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 				<meta
@@ -327,7 +327,9 @@ export default function Home() {
 			>
 				<VStack spacing={12}>
 					<View>
-						<Text weight={800}>G2 Components</Text>
+						<Text weight={800} as="h1">
+							G2 Components
+						</Text>
 					</View>
 					<StatusHeader statusRaw={statusRaw} />
 					<VStack spacing={2}>
