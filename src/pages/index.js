@@ -77,10 +77,10 @@ function getProgressMessage(statusRaw) {
 		case statusRaw > 76:
 			message = progressMessages[4];
 			break;
-		case statusRaw > 9:
+		case statusRaw > 90:
 			message = progressMessages[5];
 			break;
-		case statusRaw >= 1:
+		case statusRaw >= 100:
 			message = progressMessages[6];
 			break;
 	}
