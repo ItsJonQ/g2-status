@@ -18,8 +18,9 @@ import {
 	VStack,
 	View,
 } from "@wp-g2/components";
-import { ui, css, ThemeProvider } from "@wp-g2/styles";
+import { ui, ThemeProvider } from "@wp-g2/styles";
 import { useData } from "@hooks/useData";
+import { getData } from "@lib/api";
 import { ProgressBar } from "@components/index";
 import {
 	FiCpu,
@@ -284,8 +285,8 @@ function PackageSection(props) {
 	);
 }
 
-export default function Home() {
-	const data = useData();
+export default function Home(initialData) {
+	const data = useData(initialData);
 
 	const {
 		overview: { statusRaw },
@@ -365,4 +366,16 @@ export default function Home() {
 			</Container>
 		</View>
 	);
+}
+
+export async function getStaticProps() {
+	const initialData = await getData();
+
+	return {
+		props: initialData,
+		// Next.js will attempt to re-generate the page:
+		// - When a request comes in
+		// - At most once every second
+		revalidate: 300, // 5 minutes
+	};
 }

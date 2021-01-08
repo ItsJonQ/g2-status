@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { createStore } from "@wp-g2/substate";
+import { useSealedState } from "@wp-g2/utils";
 
 const API_URL = "/api/data/";
 
@@ -123,7 +124,16 @@ function useLoad() {
 	}, []);
 }
 
-export function useData() {
+function useInitialData(initialState) {
+	const sealedData = useSealedState(initialState);
+	const { setInitialData } = useDataStore();
+
+	setInitialData(sealedData);
+}
+
+export function useData(initialState) {
+	useInitialData(initialState);
+
 	const { items, overview, fetching, groupedItems } = useDataStore();
 
 	useLoad();

@@ -50,7 +50,7 @@ export function getItems(initialData = []) {
 			progressPct,
 			score,
 			description,
-			link,
+			link: link || "",
 		};
 	});
 
