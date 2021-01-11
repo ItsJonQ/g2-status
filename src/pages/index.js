@@ -187,16 +187,32 @@ function PackageItem(props) {
 		progressValue,
 		backgroundColor,
 		color,
+		link,
 	} = props;
+
+	const linkProps = link
+		? {
+				as: "a",
+				href: link,
+				target: "_blank",
+				rel: "noreferrer noopener",
+		  }
+		: {};
 
 	return (
 		<Grid
+			{...linkProps}
 			templateColumns={[
 				"180px minmax(0,1fr) 80px",
 				"180px minmax(0,1fr) 100px",
 			]}
 			css={[
-				{ borderRadius: 8, padding: 8, marginLeft: 12 },
+				{
+					borderRadius: 8,
+					padding: 8,
+					marginLeft: 12,
+					textDecoration: "none",
+				},
 				ui.hover({
 					background: ui.color("black").setAlpha(0.04).toRgbString(),
 				}),
