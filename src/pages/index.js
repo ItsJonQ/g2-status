@@ -26,6 +26,7 @@ import {
 	FiCpu,
 	FiSettings,
 	FiBox,
+	FiExternalLink,
 	FiCodesandbox,
 	FiLoader,
 	FiLayers,
@@ -190,7 +191,8 @@ function PackageItem(props) {
 		link,
 	} = props;
 
-	const linkProps = link
+	const hasLink = Boolean(link);
+	const linkProps = hasLink
 		? {
 				as: "a",
 				href: link,
@@ -221,6 +223,19 @@ function PackageItem(props) {
 			<View>
 				<Text weight={500} size={12} isBlock>
 					{moduleName}
+					{hasLink && (
+						<Icon
+							icon={<FiExternalLink />}
+							size={10}
+							inline
+							css={{
+								opacity: 0.5,
+								position: "relative",
+								top: -1,
+								marginLeft: 4,
+							}}
+						/>
+					)}
 				</Text>
 			</View>
 			<View>
