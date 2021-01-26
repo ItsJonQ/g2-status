@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { createStore } from "@wp-g2/substate";
+import createStore from "zustand";
 import { useSealedState } from "@wp-g2/utils";
 
 const API_URL = "/api/data/";

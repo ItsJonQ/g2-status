@@ -292,7 +292,7 @@ function CardLink({
 
 function PackageSection(props) {
 	const { backgroundColor, color, icon, title, status, items } = props;
-	const visible = ["substate"].includes(title?.toLowerCase());
+	const visible = ["components"].includes(title?.toLowerCase());
 
 	return (
 		<Card isBorderless elevation={5}>
